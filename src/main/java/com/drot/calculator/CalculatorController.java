@@ -35,7 +35,11 @@ public class CalculatorController {
 
     @RequestMapping(value = "divide")
     public String divide(@RequestParam(value = "num1") float num1, @RequestParam(value = "num2") float num2){
-        return calculator.divide(num1, num2);
+        if (num2 != 0) {
+            return calculator.divide(num1, num2);
+        } else {
+            return "Деление на <0> недопустимо";
+        }
     }
 
 }
